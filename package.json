@@ -9,7 +9,8 @@
     "dev": "nodemon server.js",
     "db:push": "npx prisma db push",
     "db:generate": "npx prisma generate",
-    "db:studio": "npx prisma studio"
+    "db:studio": "npx prisma studio",
+    "postinstall": "npx prisma generate"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
     "@aws-sdk/s3-request-presigner": "^3.919.0",
     "@prisma/adapter-pg": "^7.1.0",
     "@prisma/client": "^7.1.0",
+    "prisma": "latest",
     "axios": "^1.12.2",
     "bcryptjs": "^3.0.2",
     "cloudinary": "^1.40.0",
