@@ -31,7 +31,7 @@ class EmailNotificationService {
         subject: template.subject,
         html: template.html,
         text: template.text,
-        from: `"Zohra Contact" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`
+        from: `"Harshika Fashions Contact" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`
       });
       
       return result;
@@ -72,7 +72,7 @@ class EmailNotificationService {
         subject: template.subject,
         html: template.html,
         text: template.text,
-        from: `"Zohra Wholesaler" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`
+        from: `"Harshika Fashions Wholesaler" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`
       });
       
       return result;
@@ -106,7 +106,7 @@ class EmailNotificationService {
         subject: template.subject,
         html: template.html,
         text: template.text,
-        from: `"Zohra Wholesaler" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`
+        from: `"Harshika Fashions Wholesaler" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`
       });
       
       return result;
@@ -131,7 +131,7 @@ class EmailNotificationService {
         subject: template.subject,
         html: template.html,
         text: template.text,
-        from: `"Zohra Wholesaler" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`
+        from: `"Harshika Fashions Wholesaler" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`
       });
       
       return result;
@@ -156,7 +156,7 @@ class EmailNotificationService {
         subject: template.subject,
         html: template.html,
         text: template.text,
-        from: `"Zohra" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`
+        from: `"Harshika Fashions" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`
       });
       
       return result;
@@ -246,7 +246,7 @@ class EmailNotificationService {
       subject: template.subject,
       html: template.html,
       text: template.text,
-      from: `"Zohra Admin Security" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`
+      from: `"Harshika Fashions Admin Security" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`
     });
     
     return result;
@@ -266,7 +266,7 @@ async sendAdminPasswordChangedConfirmation(adminData) {
       subject: template.subject,
       html: template.html,
       text: template.text,
-      from: `"Zohra Admin Security" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`
+      from: `"Harshika Fashions Admin Security" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`
     });
     
     return result;
@@ -287,7 +287,7 @@ async sendAdminPasswordChangedConfirmation(adminData) {
         subject: template.subject,
         html: template.html,
         text: template.text,
-        from: `"Zohra Orders" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`
+        from: `"Harshika Fashions Orders" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`
       });
       
       return result;
@@ -314,7 +314,7 @@ async sendAdminPasswordChangedConfirmation(adminData) {
         subject: template.subject,
         html: template.html,
         text: template.text,
-        from: `"Zohra Orders" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`
+        from: `"Harshika Fashions Orders" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`
       });
       
       return result;
@@ -334,7 +334,7 @@ async sendAdminPasswordChangedConfirmation(adminData) {
         subject: template.subject,
         html: template.html,
         text: template.text,
-        from: `"Zohra Orders" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`
+        from: `"Harshika Fashions Orders" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`
       });
       
       return result;
@@ -354,7 +354,7 @@ async sendAdminPasswordChangedConfirmation(adminData) {
         subject: template.subject,
         html: template.html,
         text: template.text,
-        from: `"Zohra Orders" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`
+        from: `"Harshika Fashions Orders" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`
       });
       
       return result;

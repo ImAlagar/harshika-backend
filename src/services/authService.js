@@ -256,7 +256,7 @@ async register(userData, files = []) {
     });
 
     await twilioClient.messages.create({
-      body: `Zohra: Your OTP is ${otp}. Do not share. Valid for 10 minutes.`,
+      body: `Harshika Fashions: Your OTP is ${otp}. Do not share. Valid for 10 minutes.`,
       to: phoneNumber,
       from: process.env.TWILIO_PHONE_NUMBER
     });
@@ -793,7 +793,7 @@ async forgotPasswordWholesaler(phone) {
 
     // Send SMS with reset link
     await twilioClient.messages.create({
-      body: `Zohra: Password reset link - ${resetUrl}. This link expires in 1 hour.`,
+      body: `Harshika Fashions: Password reset link - ${resetUrl}. This link expires in 1 hour.`,
       to: phone,
       from: process.env.TWILIO_PHONE_NUMBER
     });

@@ -66,7 +66,7 @@ export const emailTemplates = {
         <div class="container">
             <div class="header">
                 <h1>📩 New Contact Form Submission</h1>
-                <p>Zohra Website</p>
+                <p>Harshika Fashions Website</p>
             </div>
             
             <div class="content">
@@ -116,7 +116,7 @@ export const emailTemplates = {
             </div>
             
             <div class="footer">
-                <p>This is an automated notification from Zohra Contact System</p>
+                <p>This is an automated notification from Harshika Fashions Contact System</p>
                 <p style="margin-top: 8px;">Please do not reply to this email. Use the reply button above to respond to the customer.</p>
             </div>
         </div>
@@ -124,7 +124,7 @@ export const emailTemplates = {
     </html>
         `,
         text: `
-    NEW CONTACT FORM SUBMISSION - Zohra
+    NEW CONTACT FORM SUBMISSION - Harshika Fashions
 
     A new contact form submission has been received:
 
@@ -141,13 +141,13 @@ export const emailTemplates = {
 
     Please respond to this inquiry promptly.
 
-    This is an automated notification from Zohra.
+    This is an automated notification from Harshika Fashions.
         `.trim()
         };
     },
 
     contactAutoReply: (contactData) => ({
-        subject: 'Thank You for Contacting Zohra',
+        subject: 'Thank You for Contacting Harshika Fashions',
         html: `
     <!DOCTYPE html>
     <html>
@@ -166,16 +166,16 @@ export const emailTemplates = {
             </div>
             <div class="content">
                 <p>Dear ${contactData.name || 'Valued Customer'},</p>
-                <p>Thank you for reaching out to Zohra. We have received your message and our team will get back to you within 24-48 hours.</p>
+                <p>Thank you for reaching out to Harshika Fashions. We have received your message and our team will get back to you within 24-48 hours.</p>
                 <p>For urgent inquiries, please call us at [Your Phone Number].</p>
-                <p>Best regards,<br>Zohra Team</p>
+                <p>Best regards,<br>Harshika Fashions Team</p>
             </div>
         </div>
     </body>
     </html>
         `,
         text: `
-    Thank you for contacting Zohra!
+    Thank you for contacting Harshika Fashions!
 
     Dear ${contactData.name || 'Valued Customer'},
 
@@ -184,18 +184,18 @@ export const emailTemplates = {
     For urgent inquiries, please call us at [Your Phone Number].
 
     Best regards,
-    Zohra Team
+    Harshika Fashions Team
         `.trim()
     }),
 
     welcomeEmail: (userData) => {
     const currentYear = new Date().getFullYear();
-    const domain = process.env.DOMAIN_NAME || 'Zohra.com';
+    const domain = process.env.DOMAIN_NAME || 'Harshika Fashions.com';
     const frontendUrl = process.env.FRONTEND_URL || `https://${domain}`;
     
     return {
         // ✅ Fixed subject line - remove excessive emojis
-        subject: `Welcome to Zohra - Get Started with Organic Living`,
+        subject: `Welcome to Harshika Fashions - Get Started with Organic Living`,
         
         html: `
     <!DOCTYPE html>
@@ -203,7 +203,7 @@ export const emailTemplates = {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Welcome to Zohra</title>
+        <title>Welcome to Harshika Fashions</title>
         <style>
             /* Reset and basic styles */
             body { font-family: Arial, Helvetica, sans-serif; line-height: 1.6; color: #333333; margin: 0; padding: 0; background-color: #f6f6f6; }
@@ -231,7 +231,7 @@ export const emailTemplates = {
         <div class="container">
             <!-- Header -->
             <div class="header">
-                <h1>Welcome to Zohra</h1>
+                <h1>Welcome to Harshika Fashions</h1>
                 <p>Your Journey to Healthier Living Begins</p>
             </div>
             
@@ -239,7 +239,7 @@ export const emailTemplates = {
             <div class="content">
                 <div class="welcome-text">
                     <p>Hello <strong>${userData.name}</strong>,</p>
-                    <p>Thank you for joining Zohra! We're excited to have you as part of our community dedicated to healthy, organic living.</p>
+                    <p>Thank you for joining Harshika Fashions! We're excited to have you as part of our community dedicated to healthy, organic living.</p>
                 </div>
                 
                 <div class="features">
@@ -275,7 +275,7 @@ export const emailTemplates = {
             
             <!-- Footer -->
             <div class="footer">
-                <p><strong>Zohra</strong></p>
+                <p><strong>Harshika Fashions</strong></p>
                 <p>Nourishing Lives Naturally</p>
                 <p>Email: support@${domain} | Phone: +91 98765 43210</p>
                 <p>
@@ -283,7 +283,7 @@ export const emailTemplates = {
                     <a href="${frontendUrl}/unsubscribe" style="color: #666666; text-decoration: none;">Unsubscribe</a>
                 </p>
                 <p style="margin-top: 15px; font-size: 11px; color: #999999;">
-                    &copy; ${currentYear} Zohra. All rights reserved.<br>
+                    &copy; ${currentYear} Harshika Fashions. All rights reserved.<br>
                     This email was sent to ${userData.email} because you registered on our website.
                 </p>
             </div>
@@ -294,11 +294,11 @@ export const emailTemplates = {
         
         // ✅ Proper text version is crucial for spam filters
         text: `
-    Welcome to Zohra
+    Welcome to Harshika Fashions
 
     Hello ${userData.name},
 
-    Thank you for joining Zohra! We're excited to have you as part of our community dedicated to healthy, organic living.
+    Thank you for joining Harshika Fashions! We're excited to have you as part of our community dedicated to healthy, organic living.
 
     WHAT YOU CAN EXPECT:
     • Fresh Organic Produce: 100% certified organic fruits and vegetables
@@ -322,29 +322,29 @@ export const emailTemplates = {
     Update your preferences: ${frontendUrl}/preferences
     Unsubscribe: ${frontendUrl}/unsubscribe
 
-    Zohra
+    Harshika Fashions
     Nourishing Lives Naturally
 
-    © ${currentYear} Zohra. All rights reserved.
+    © ${currentYear} Harshika Fashions. All rights reserved.
     This email was sent to ${userData.email} because you registered on our website.
         `.trim()
     };
     },
 
    passwordReset: (userData, resetUrl) => {
-    const domain = process.env.DOMAIN_NAME || 'Zohra.com';
+    const domain = process.env.DOMAIN_NAME || 'Harshika Fashions.com';
     const supportEmail = process.env.SUPPORT_EMAIL || `support@${domain}`;
     const expiryTime = '1 hour';
     
     return {
-      subject: 'Reset Your Password - Zohra',
+      subject: 'Reset Your Password - Harshika Fashions',
       html: `
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Reset - Zohra</title>
+    <title>Password Reset - Harshika Fashions</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #f6f6f6; padding: 20px; }
@@ -368,7 +368,7 @@ export const emailTemplates = {
     <div class="container">
         <div class="header">
             <h1>🔒 Password Reset Request</h1>
-            <p>Zohra Account Security</p>
+            <p>Harshika Fashions Account Security</p>
         </div>
         
         <div class="content">
@@ -378,7 +378,7 @@ export const emailTemplates = {
             
             <p>Hello <strong>${userData.name}</strong>,</p>
             
-            <p>We received a request to reset your password for your Zohra account. If you didn't make this request, please ignore this email.</p>
+            <p>We received a request to reset your password for your Harshika Fashions account. If you didn't make this request, please ignore this email.</p>
             
             <div class="reset-section">
                 <p>To reset your password, click the button below:</p>
@@ -410,9 +410,9 @@ export const emailTemplates = {
         </div>
         
         <div class="footer">
-            <p>This is an automated security email from Zohra</p>
+            <p>This is an automated security email from Harshika Fashions</p>
             <p style="margin-top: 8px;">
-                <strong>Zohra</strong><br>
+                <strong>Harshika Fashions</strong><br>
                 Nourishing Lives Naturally
             </p>
         </div>
@@ -421,11 +421,11 @@ export const emailTemplates = {
 </html>
       `,
       text: `
-PASSWORD RESET REQUEST - Zohra
+PASSWORD RESET REQUEST - Harshika Fashions
 
 Hello ${userData.name},
 
-We received a request to reset your password for your Zohra account.
+We received a request to reset your password for your Harshika Fashions account.
 
 To reset your password, visit this link:
 ${resetUrl}
@@ -439,16 +439,16 @@ If you didn't request this reset, please ignore this email. Your account remains
 
 Need help? Contact our support team: ${supportEmail}
 
-This is an automated security email from Zohra.
+This is an automated security email from Harshika Fashions.
 
-Zohra
+Harshika Fashions
 Nourishing Lives Naturally
       `.trim()
     };
     },
 
     passwordChangedConfirmation: (userData) => {
-        const domain = process.env.DOMAIN_NAME || 'Zohra.com';
+        const domain = process.env.DOMAIN_NAME || 'Harshika Fashions.com';
         const supportEmail = process.env.SUPPORT_EMAIL || `support@${domain}`;
         const timestamp = new Date().toLocaleString('en-US', {
         year: 'numeric',
@@ -460,14 +460,14 @@ Nourishing Lives Naturally
         });
         
         return {
-        subject: 'Password Changed Successfully - Zohra',
+        subject: 'Password Changed Successfully - Harshika Fashions',
         html: `
     <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Password Changed - Zohra</title>
+        <title>Password Changed - Harshika Fashions</title>
         <style>
             * { margin: 0; padding: 0; box-sizing: border-box; }
             body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #f6f6f6; padding: 20px; }
@@ -488,7 +488,7 @@ Nourishing Lives Naturally
         <div class="container">
             <div class="header">
                 <h1>✅ Password Changed Successfully</h1>
-                <p>Zohra Account Security</p>
+                <p>Harshika Fashions Account Security</p>
             </div>
             
             <div class="content">
@@ -498,7 +498,7 @@ Nourishing Lives Naturally
                 
                 <p>Hello <strong>${userData.name}</strong>,</p>
                 
-                <p>This email confirms that your Zohra account password was changed on <strong>${timestamp}</strong>.</p>
+                <p>This email confirms that your Harshika Fashions account password was changed on <strong>${timestamp}</strong>.</p>
                 
                 <div class="security-info">
                     <h3 style="color: #495057; margin-bottom: 15px;">🔒 Security Information</h3>
@@ -521,9 +521,9 @@ Nourishing Lives Naturally
             </div>
             
             <div class="footer">
-                <p>This is an automated security notification from Zohra</p>
+                <p>This is an automated security notification from Harshika Fashions</p>
                 <p style="margin-top: 8px;">
-                    <strong>Zohra</strong><br>
+                    <strong>Harshika Fashions</strong><br>
                     Nourishing Lives Naturally
                 </p>
             </div>
@@ -532,11 +532,11 @@ Nourishing Lives Naturally
     </html>
         `,
         text: `
-    PASSWORD CHANGED SUCCESSFULLY - Zohra
+    PASSWORD CHANGED SUCCESSFULLY - Harshika Fashions
 
     Hello ${userData.name},
 
-    This email confirms that your Zohra account password was changed on ${timestamp}.
+    This email confirms that your Harshika Fashions account password was changed on ${timestamp}.
 
     SECURITY INFORMATION:
     - Your new password is now active
@@ -548,9 +548,9 @@ Nourishing Lives Naturally
 
     Thank you for helping us keep your account secure.
 
-    This is an automated security notification from Zohra.
+    This is an automated security notification from Harshika Fashions.
 
-    Zohra
+    Harshika Fashions
     Nourishing Lives Naturally
         `.trim()
         };
@@ -560,19 +560,19 @@ Nourishing Lives Naturally
     // Add these templates to your emailTemplates.js file
 
 adminPasswordReset: (adminData, resetUrl) => {
-  const domain = process.env.DOMAIN_NAME || 'Zohra.com';
+  const domain = process.env.DOMAIN_NAME || 'Harshika Fashions.com';
   const supportEmail = process.env.SUPPORT_EMAIL || `support@${domain}`;
   const expiryTime = '1 hour';
   
   return {
-    subject: '🔐 Admin Password Reset Request - Zohra',
+    subject: '🔐 Admin Password Reset Request - Harshika Fashions',
     html: `
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Password Reset - Zohra</title>
+    <title>Admin Password Reset - Harshika Fashions</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #f6f6f6; padding: 20px; }
@@ -597,7 +597,7 @@ adminPasswordReset: (adminData, resetUrl) => {
     <div class="container">
         <div class="header">
             <h1>🔐 Admin Password Reset</h1>
-            <p>Zohra Administrator Portal</p>
+            <p>Harshika Fashions Administrator Portal</p>
         </div>
         
         <div class="content">
@@ -607,7 +607,7 @@ adminPasswordReset: (adminData, resetUrl) => {
             
             <p>Hello <strong>${adminData.name}</strong> <span class="admin-badge">ADMIN</span>,</p>
             
-            <p>We received a request to reset your password for the Zohra <strong>Administrator Portal</strong>. If you didn't make this request, please contact the super administrator immediately.</p>
+            <p>We received a request to reset your password for the Harshika Fashions <strong>Administrator Portal</strong>. If you didn't make this request, please contact the super administrator immediately.</p>
             
             <div class="reset-section">
                 <p>To reset your admin password, click the button below:</p>
@@ -644,9 +644,9 @@ adminPasswordReset: (adminData, resetUrl) => {
         </div>
         
         <div class="footer">
-            <p>This is an automated security email for Zohra Administrators</p>
+            <p>This is an automated security email for Harshika Fashions Administrators</p>
             <p style="margin-top: 8px;">
-                <strong>Zohra</strong><br>
+                <strong>Harshika Fashions</strong><br>
                 Administrator Portal - Secure Access
             </p>
         </div>
@@ -655,11 +655,11 @@ adminPasswordReset: (adminData, resetUrl) => {
 </html>
     `,
     text: `
-ADMIN PASSWORD RESET REQUEST - Zohra
+ADMIN PASSWORD RESET REQUEST - Harshika Fashions
 
 Hello ${adminData.name} (ADMIN),
 
-We received a request to reset your password for the Zohra Administrator Portal.
+We received a request to reset your password for the Harshika Fashions Administrator Portal.
 
 To reset your admin password, visit this link:
 ${resetUrl}
@@ -677,16 +677,16 @@ Response Priority: Immediate attention
 
 Note: This reset is for admin access only and provides elevated privileges to the system.
 
-This is an automated security email for Zohra Administrators.
+This is an automated security email for Harshika Fashions Administrators.
 
-Zohra
+Harshika Fashions
 Administrator Portal - Secure Access
     `.trim()
   };
 },
 
 adminPasswordChangedConfirmation: (adminData) => {
-  const domain = process.env.DOMAIN_NAME || 'Zohra.com';
+  const domain = process.env.DOMAIN_NAME || 'Harshika Fashions.com';
   const supportEmail = process.env.SUPPORT_EMAIL || `support@${domain}`;
   const timestamp = new Date().toLocaleString('en-US', {
     year: 'numeric',
@@ -698,14 +698,14 @@ adminPasswordChangedConfirmation: (adminData) => {
   });
   
   return {
-    subject: '✅ Admin Password Changed Successfully - Zohra',
+    subject: '✅ Admin Password Changed Successfully - Harshika Fashions',
     html: `
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Password Changed - Zohra</title>
+    <title>Admin Password Changed - Harshika Fashions</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #f6f6f6; padding: 20px; }
@@ -728,7 +728,7 @@ adminPasswordChangedConfirmation: (adminData) => {
     <div class="container">
         <div class="header">
             <h1>✅ Admin Password Changed</h1>
-            <p>Zohra Administrator Portal</p>
+            <p>Harshika Fashions Administrator Portal</p>
         </div>
         
         <div class="content">
@@ -738,7 +738,7 @@ adminPasswordChangedConfirmation: (adminData) => {
             
             <p>Hello <strong>${adminData.name}</strong> <span class="admin-badge">ADMIN</span>,</p>
             
-            <p>This email confirms that your Zohra <strong>Administrator Portal</strong> password was changed on <strong>${timestamp}</strong>.</p>
+            <p>This email confirms that your Harshika Fashions <strong>Administrator Portal</strong> password was changed on <strong>${timestamp}</strong>.</p>
             
             <div class="security-info">
                 <h3 style="color: #495057; margin-bottom: 15px;">🔒 Admin Security Update</h3>
@@ -772,9 +772,9 @@ adminPasswordChangedConfirmation: (adminData) => {
         </div>
         
         <div class="footer">
-            <p>This is an automated security notification for Zohra Administrators</p>
+            <p>This is an automated security notification for Harshika Fashions Administrators</p>
             <p style="margin-top: 8px;">
-                <strong>Zohra</strong><br>
+                <strong>Harshika Fashions</strong><br>
                 Administrator Portal - Security First
             </p>
         </div>
@@ -783,11 +783,11 @@ adminPasswordChangedConfirmation: (adminData) => {
 </html>
     `,
     text: `
-ADMIN PASSWORD CHANGED SUCCESSFULLY - Zohra
+ADMIN PASSWORD CHANGED SUCCESSFULLY - Harshika Fashions
 
 Hello ${adminData.name} (ADMIN),
 
-This email confirms that your Zohra Administrator Portal password was changed on ${timestamp}.
+This email confirms that your Harshika Fashions Administrator Portal password was changed on ${timestamp}.
 
 ADMIN SECURITY UPDATE:
 - Your new admin password is now active
@@ -806,9 +806,9 @@ NEXT STEPS RECOMMENDED:
 
 Thank you for helping us maintain the security of our administrator systems.
 
-This is an automated security notification for Zohra Administrators.
+This is an automated security notification for Harshika Fashions Administrators.
 
-Zohra
+Harshika Fashions
 Administrator Portal - Security First
     `.trim()
   };
@@ -874,7 +874,7 @@ Administrator Portal - Security First
         <div class="container">
             <div class="header">
                 <h1>🏢 New Wholesaler Application</h1>
-                <p>Zohra Wholesaler Program</p>
+                <p>Harshika Fashions Wholesaler Program</p>
             </div>
             
             <div class="content">
@@ -962,7 +962,7 @@ Administrator Portal - Security First
             </div>
             
             <div class="footer">
-                <p>This is an automated notification from Zohra Wholesaler Management System</p>
+                <p>This is an automated notification from Harshika Fashions Wholesaler Management System</p>
                 <p style="margin-top: 8px;">Please review this application within 48 hours.</p>
             </div>
         </div>
@@ -970,7 +970,7 @@ Administrator Portal - Security First
     </html>
         `,
         text: `
-    NEW WHOLESALER APPLICATION - Zohra
+    NEW WHOLESALER APPLICATION - Harshika Fashions
 
     A new wholesaler application has been submitted and requires review.
 
@@ -1002,13 +1002,13 @@ Administrator Portal - Security First
 
     Please review this application within 48 hours.
 
-    This is an automated notification from Zohra.
+    This is an automated notification from Harshika Fashions.
         `.trim()
         };
     },
 
     wholesalerAutoReply: (wholesalerData) => ({
-        subject: 'Wholesaler Application Received - Zohra',
+        subject: 'Wholesaler Application Received - Harshika Fashions',
         html: `
     <!DOCTYPE html>
     <html>
@@ -1030,7 +1030,7 @@ Administrator Portal - Security First
             <div class="content">
                 <p>Dear ${wholesalerData.contactPerson || 'Valued Business Partner'},</p>
                 
-                <p>Thank you for your interest in becoming a wholesale partner with Zohra!</p>
+                <p>Thank you for your interest in becoming a wholesale partner with Harshika Fashions!</p>
                 
                 <p>We have received your application and our team is currently reviewing it. Here's what you can expect next:</p>
                 
@@ -1060,18 +1060,18 @@ Administrator Portal - Security First
                 
                 <p>Best regards,<br>
                 <strong>Wholesale Partnership Team</strong><br>
-                Zohra</p>
+                Harshika Fashions</p>
             </div>
         </div>
     </body>
     </html>
         `,
         text: `
-    Wholesaler Application Received - Zohra
+    Wholesaler Application Received - Harshika Fashions
 
     Dear ${wholesalerData.contactPerson || 'Valued Business Partner'},
 
-    Thank you for your interest in becoming a wholesale partner with Zohra!
+    Thank you for your interest in becoming a wholesale partner with Harshika Fashions!
 
     We have received your application and our team is currently reviewing it. Here's what you can expect next:
 
@@ -1091,12 +1091,12 @@ Administrator Portal - Security First
 
     Best regards,
     Wholesale Partnership Team
-    Zohra
+    Harshika Fashions
         `.trim()
     }),
 
     wholesalerApprovalConfirmation: (wholesalerData) => ({
-        subject: 'Wholesaler Application Approved - Welcome to Zohra!',
+        subject: 'Wholesaler Application Approved - Welcome to Harshika Fashions!',
         html: `
     <!DOCTYPE html>
     <html>
@@ -1137,18 +1137,18 @@ Administrator Portal - Security First
                 
                 <p>Our wholesale team will contact you shortly to discuss your specific requirements and introduce you to your account manager.</p>
                 
-                <p>Welcome to the Zohra family!</p>
+                <p>Welcome to the Harshika Fashions family!</p>
                 
                 <p>Best regards,<br>
                 <strong>Wholesale Partnership Team</strong><br>
-                Zohra</p>
+                Harshika Fashions</p>
             </div>
         </div>
     </body>
     </html>
         `,
         text: `
-    Wholesaler Application Approved - Welcome to Zohra!
+    Wholesaler Application Approved - Welcome to Harshika Fashions!
 
     Dear ${wholesalerData.contactPerson},
 
@@ -1170,11 +1170,11 @@ Administrator Portal - Security First
 
     Our wholesale team will contact you shortly to discuss your specific requirements and introduce you to your account manager.
 
-    Welcome to the Zohra family!
+    Welcome to the Harshika Fashions family!
 
     Best regards,
     Wholesale Partnership Team
-    Zohra
+    Harshika Fashions
         `.trim()
     }),
 
@@ -1246,7 +1246,7 @@ Administrator Portal - Security First
         <div class="container">
             <div class="header">
                 <h1>📩 New Contact Form Submission</h1>
-                <p>Zohra Website</p>
+                <p>Harshika Fashions Website</p>
             </div>
             
             <div class="content">
@@ -1301,7 +1301,7 @@ Administrator Portal - Security First
             </div>
             
             <div class="footer">
-                <p>This is an automated notification from Zohra Contact System</p>
+                <p>This is an automated notification from Harshika Fashions Contact System</p>
                 <p style="margin-top: 8px;">Please do not reply to this email. Use the reply button above to respond to the customer.</p>
             </div>
         </div>
@@ -1309,7 +1309,7 @@ Administrator Portal - Security First
     </html>
         `,
         text: `
-    NEW CONTACT FORM SUBMISSION - Zohra
+    NEW CONTACT FORM SUBMISSION - Harshika Fashions
 
     A new contact form submission has been received:
 
@@ -1327,13 +1327,13 @@ Administrator Portal - Security First
 
     Please respond to this inquiry promptly.
 
-    This is an automated notification from Zohra.
+    This is an automated notification from Harshika Fashions.
         `.trim()
     };
     },
 
     contactAutoReply: (contactData) => ({
-    subject: 'Thank You for Contacting Zohra',
+    subject: 'Thank You for Contacting Harshika Fashions',
     html: `
     <!DOCTYPE html>
     <html>
@@ -1355,7 +1355,7 @@ Administrator Portal - Security First
             <div class="content">
                 <p>Dear ${contactData.name || 'Valued Customer'},</p>
                 
-                <p>Thank you for reaching out to Zohra. We have received your message and our team will get back to you within 24-48 hours.</p>
+                <p>Thank you for reaching out to Harshika Fashions. We have received your message and our team will get back to you within 24-48 hours.</p>
                 
                 <div class="timeline">
                     <div class="timeline-item">
@@ -1380,18 +1380,18 @@ Administrator Portal - Security First
                 
                 <p>Best regards,<br>
                 <strong>Customer Support Team</strong><br>
-                Zohra</p>
+                Harshika Fashions</p>
             </div>
         </div>
     </body>
     </html>
     `,
     text: `
-    Thank You for Contacting Zohra
+    Thank You for Contacting Harshika Fashions
 
     Dear ${contactData.name || 'Valued Customer'},
 
-    Thank you for reaching out to Zohra. We have received your message and our team will get back to you within 24-48 hours.
+    Thank you for reaching out to Harshika Fashions. We have received your message and our team will get back to you within 24-48 hours.
 
     WHAT TO EXPECT:
     --------------
@@ -1408,7 +1408,7 @@ Administrator Portal - Security First
 
     Best regards,
     Customer Support Team
-    Zohra
+    Harshika Fashions
     `.trim()
     }),
 
@@ -1422,7 +1422,7 @@ Administrator Portal - Security First
             minute: '2-digit'
         });
 
-        const domain = process.env.DOMAIN_NAME || 'Zohra.com';
+        const domain = process.env.DOMAIN_NAME || 'Harshika Fashions.com';
         const supportEmail = process.env.SUPPORT_EMAIL || `support@${domain}`;
         const trackingUrl = orderData.trackingUrl || '#';
 
@@ -1497,14 +1497,14 @@ Administrator Portal - Security First
 
 
         return {
-            subject: `Order Confirmed - #${orderData.orderNumber} - Zohra`,
+            subject: `Order Confirmed - #${orderData.orderNumber} - Harshika Fashions`,
             html: `
     <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Order Confirmation - Zohra</title>
+        <title>Order Confirmation - Harshika Fashions</title>
         <style>
             * { 
                 margin: 0; 
@@ -1823,7 +1823,7 @@ Administrator Portal - Security First
         <div class="container">
             <div class="header">
                 <h1>🎉 Order Confirmed!</h1>
-                <p>Thank you for shopping with Zohra</p>
+                <p>Thank you for shopping with Harshika Fashions</p>
             </div>
             
             <div class="content">
@@ -1833,7 +1833,7 @@ Administrator Portal - Security First
                 
                 <p style="margin-bottom: 25px; font-size: 16px; color: #4a5568;">
                     Hello <strong style="color: #667eea;">${orderData.name}</strong>,<br>
-                    Thank you for choosing Zohra! We're preparing your order and will notify you once it's shipped.
+                    Thank you for choosing Harshika Fashions! We're preparing your order and will notify you once it's shipped.
                 </p>
                 
                 <!-- Order Overview -->
@@ -2060,12 +2060,12 @@ Administrator Portal - Security First
                 <p style="margin-top: 30px; text-align: center; color: #4a5568; line-height: 1.6;">
                     Thank you for trusting us with your order. We're committed to making your experience wonderful!<br>
                     With love,<br>
-                    <strong style="color: #667eea; font-size: 18px;">Zohra Team 🤍</strong>
+                    <strong style="color: #667eea; font-size: 18px;">Harshika Fashions Team 🤍</strong>
                 </p>
             </div>
             
             <div class="footer">
-                <p>© ${new Date().getFullYear()} Zohra. All rights reserved.</p>
+                <p>© ${new Date().getFullYear()} Harshika Fashions. All rights reserved.</p>
                 <p>Nourishing Lives Naturally • <a href="https://${domain}" style="color: #6c757d;">${domain}</a></p>
                 <p style="margin-top: 10px; font-size: 11px; color: #8c959f;">
                     This is an automated email. Please do not reply to this message.
@@ -2076,7 +2076,7 @@ Administrator Portal - Security First
     </html>
             `,
             text: `
-    ORDER CONFIRMED - Zohra
+    ORDER CONFIRMED - Harshika Fashions
 
     Hello ${orderData.name},
 
@@ -2147,13 +2147,13 @@ Administrator Portal - Security First
     Phone: +91 88833 85888
     Business Hours: Monday - Saturday, 9:00 AM - 8:00 PM
 
-    Thank you for choosing Zohra! We're committed to making your experience wonderful.
+    Thank you for choosing Harshika Fashions! We're committed to making your experience wonderful.
 
     With love,
-    Zohra Team
+    Harshika Fashions Team
 
     --
-    Zohra
+    Harshika Fashions
     Nourishing Lives Naturally
     https://${domain}
             `.trim()
@@ -2169,7 +2169,7 @@ Administrator Portal - Security First
             minute: '2-digit'
         });
 
-        const domain = process.env.DOMAIN_NAME || 'zohra.com';
+        const domain = process.env.DOMAIN_NAME || 'Harshika Fashions.com';
         const adminUrl = process.env.ADMIN_URL || `https://admin.${domain}`;
 
         // Enhanced helper function for admin email
@@ -2234,14 +2234,14 @@ Administrator Portal - Security First
 
         return {
             // Fixed subject line - removed emoji to prevent spam
-            subject: `Order Notification: #${orderData.orderNumber} - Zohra`,
+            subject: `Order Notification: #${orderData.orderNumber} - Harshika Fashions`,
             html: `
     <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>New Order Notification - Zohra</title>
+        <title>New Order Notification - Harshika Fashions</title>
         <style>
             * { 
                 margin: 0; 
@@ -2677,15 +2677,15 @@ Administrator Portal - Security First
             </div>
             
             <div class="footer">
-                <p>© ${new Date().getFullYear()} Zohra. All rights reserved.</p>
-                <p>This is an automated order notification from Zohra Order Management System.</p>
+                <p>© ${new Date().getFullYear()} Harshika Fashions. All rights reserved.</p>
+                <p>This is an automated order notification from Harshika Fashions Order Management System.</p>
             </div>
         </div>
     </body>
     </html>
             `,
             text: `
-    NEW ORDER NOTIFICATION - Zohra
+    NEW ORDER NOTIFICATION - Harshika Fashions
 
     A new order has been placed and requires processing.
 
@@ -2741,10 +2741,10 @@ Administrator Portal - Security First
 
     View order in admin panel: ${adminUrl}/orders/${orderData.id}
 
-    This is an automated order notification from Zohra.
+    This is an automated order notification from Harshika Fashions.
 
     --
-    Zohra
+    Harshika Fashions
     Order Management System
             `.trim()
         };
@@ -2758,14 +2758,14 @@ Administrator Portal - Security First
     });
 
     return {
-        subject: `Order ${newStatus} - #${orderData.orderNumber} - Zohra`,
+        subject: `Order ${newStatus} - #${orderData.orderNumber} - Harshika Fashions`,
         html: `
     <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Order Status Update - Zohra</title>
+        <title>Order Status Update - Harshika Fashions</title>
         <style>
             * { margin: 0; padding: 0; box-sizing: border-box; }
             body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #f6f6f6; padding: 20px; }
@@ -2828,12 +2828,12 @@ Administrator Portal - Security First
                 ` : ''}
 
                 <div style="margin-top: 20px;">
-                    <p>Thank you for shopping with Zohra!</p>
+                    <p>Thank you for shopping with Harshika Fashions!</p>
                 </div>
             </div>
             
             <div class="footer">
-                <p><strong>Zohra</strong></p>
+                <p><strong>Harshika Fashions</strong></p>
                 <p>Nourishing Lives Naturally</p>
                 <p style="margin-top: 15px; font-size: 11px; color: #999;">
                     This is an automated status update email. Please do not reply to this message.
@@ -2844,7 +2844,7 @@ Administrator Portal - Security First
     </html>
         `,
         text: `
-    ORDER STATUS UPDATE - Zohra
+    ORDER STATUS UPDATE - Harshika Fashions
 
     Hello ${orderData.name},
 
@@ -2875,10 +2875,10 @@ Administrator Portal - Security First
     Your order has been delivered. We hope you love your purchase!
     ` : ''}
 
-    Thank you for shopping with Zohra!
+    Thank you for shopping with Harshika Fashions!
 
     --
-    Zohra
+    Harshika Fashions
     Nourishing Lives Naturally
         `.trim()
     };
@@ -2892,14 +2892,14 @@ Administrator Portal - Security First
     });
 
     return {
-        subject: `Order Refund Processed - #${orderData.orderNumber} - Zohra`,
+        subject: `Order Refund Processed - #${orderData.orderNumber} - Harshika Fashions`,
         html: `
     <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Order Refund - Zohra</title>
+        <title>Order Refund - Harshika Fashions</title>
         <style>
             * { margin: 0; padding: 0; box-sizing: border-box; }
             body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #f6f6f6; padding: 20px; }
@@ -2952,7 +2952,7 @@ Administrator Portal - Security First
             </div>
             
             <div class="footer">
-                <p><strong>Zohra</strong></p>
+                <p><strong>Harshika Fashions</strong></p>
                 <p>Nourishing Lives Naturally</p>
                 <p style="margin-top: 15px; font-size: 11px; color: #999;">
                     This is an automated refund notification email. Please do not reply to this message.
@@ -2963,7 +2963,7 @@ Administrator Portal - Security First
     </html>
         `,
         text: `
-    ORDER REFUND PROCESSED - Zohra
+    ORDER REFUND PROCESSED - Harshika Fashions
 
     Hello ${orderData.name},
 
@@ -2988,7 +2988,7 @@ Administrator Portal - Security First
     We hope to serve you better in the future.
 
     --
-    Zohra
+    Harshika Fashions
     Nourishing Lives Naturally
         `.trim()
     };
