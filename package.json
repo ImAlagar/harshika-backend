@@ -24,15 +24,10 @@
     "url": "https://github.com/ImAlagar/harshika-backend/issues"
   },
   "homepage": "https://github.com/ImAlagar/harshika-backend#readme",
-  "devDependencies": {
-    "nodemon": "^3.1.10",
-    "prisma": "^7.1.0"
-  },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.919.0",
     "@aws-sdk/s3-request-presigner": "^3.919.0",
-    "@prisma/adapter-pg": "^7.1.0",
-    "@prisma/client": "^7.1.0",
+    "@prisma/client": "^6.17.1",
     "axios": "^1.12.2",
     "bcryptjs": "^3.0.2",
     "cloudinary": "^1.40.0",
@@ -48,11 +43,14 @@
     "multer-storage-cloudinary": "^4.0.0",
     "node-fetch": "^3.3.2",
     "nodemailer": "^7.0.10",
-    "pg": "^8.16.3",
+    "prisma": "^6.17.1",
     "razorpay": "^2.9.6",
     "resend": "^6.2.0",
     "twilio": "^5.10.4",
     "winston": "^3.18.3",
     "winston-daily-rotate-file": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }
