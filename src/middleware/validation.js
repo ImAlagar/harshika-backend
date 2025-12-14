@@ -1,4 +1,5 @@
 import { body, validationResult } from 'express-validator';
+import { findInvalidChars } from '../utils/findInvalidChars.js';
 
 
 export const validate = (type) => {
@@ -221,12 +222,6 @@ body('categoryId')
 
 body('subcategoryId')
     .optional({ nullable: true })
-    .custom((value, { req }) => {
-        if (value && !req.body.categoryId) {
-            throw new Error('Category must be selected when choosing a subcategory');
-        }
-        return true;
-    })
     .isLength({ min: 1, max: 50 })
     .withMessage('Subcategory ID must be a valid ID'),  
 
@@ -300,21 +295,25 @@ body('subcategoryId')
     }),
 
   // Validation result middleware
-  (req, res, next) => {
-    const errors = validationResult(req);
+// Validation result middleware
+(req, res, next) => {
+  const errors = validationResult(req);
+  
+  if (!errors.isEmpty()) {
+    // Extract messages properly
+    const errorMessages = errors.array().map(error => {
+      return error.msg || error.message || 'Validation error';
+    });
     
-    if (!errors.isEmpty()) {
-
-      
-      return res.status(400).json({
-        success: false,
-        message: 'Product validation failed',
-        errors: errors.array()
-      });
-    }
-
-    next();
+    return res.status(400).json({
+      success: false,
+      message: errorMessages[0], // First error message
+      errors: errorMessages // All error messages
+    });
   }
+
+  next();
+}
 ];
 
 
@@ -375,17 +374,26 @@ export const validateProductUpdate = [
       return true;
     }),
 
-  (req, res, next) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({
-        success: false,
-        message: 'Product update validation failed',
-        errors: errors.array()
-      });
-    }
-    next();
+// Validation result middleware
+// Validation result middleware
+(req, res, next) => {
+  const errors = validationResult(req);
+  
+  if (!errors.isEmpty()) {
+    // Extract messages properly
+    const errorMessages = errors.array().map(error => {
+      return error.msg || error.message || 'Validation error';
+    });
+    
+    return res.status(400).json({
+      success: false,
+      message: errorMessages[0], // First error message
+      errors: errorMessages // All error messages
+    });
   }
+
+  next();
+}
 ];
 
 
@@ -397,8 +405,17 @@ export const validateCategory = [
     .withMessage('Category name is required')
     .isLength({ min: 2, max: 100 })
     .withMessage('Category name must be between 2 and 100 characters')
-    .matches(/^[a-zA-Z0-9\s\-&]+$/)
-    .withMessage('Category name can only contain letters, numbers, spaces, hyphens, and ampersands'),
+    .custom((value) => {
+      const invalidChars = findInvalidChars(value);
+
+      if (invalidChars.length > 0) {
+        throw new Error(
+          `Invalid characters used: ${invalidChars.join(' ')}`
+        );
+      }
+
+      return true;
+    }),
 
   body('description')
     .optional() // Make description optional
@@ -414,12 +431,11 @@ export const validateCategory = [
   // Validation result middleware
   (req, res, next) => {
     const errors = validationResult(req);
-    
+
     if (!errors.isEmpty()) {
       return res.status(400).json({
         success: false,
-        message: 'Category validation failed',
-        errors: errors.array()
+        message: errors.array()[0].msg // 🔥 EXACT error
       });
     }
 
@@ -434,8 +450,17 @@ export const validateCategoryUpdate = [
     .trim()
     .isLength({ min: 2, max: 100 })
     .withMessage('Category name must be between 2 and 100 characters')
-    .matches(/^[a-zA-Z0-9\s\-&]+$/)
-    .withMessage('Category name can only contain letters, numbers, spaces, hyphens, and ampersands'),
+    .custom((value) => {
+      const invalidChars = findInvalidChars(value);
+
+      if (invalidChars.length > 0) {
+        throw new Error(
+          `Invalid characters used: ${invalidChars.join(' ')}`
+        );
+      }
+
+      return true;
+    }),
 
   body('description')
     .optional() // Make description optional
@@ -450,13 +475,14 @@ export const validateCategoryUpdate = [
 
   (req, res, next) => {
     const errors = validationResult(req);
+
     if (!errors.isEmpty()) {
       return res.status(400).json({
         success: false,
-        message: 'Category update validation failed',
-        errors: errors.array()
+        message: errors.array()[0].msg // 🔥 EXACT error
       });
     }
+
     next();
   }
 ];
@@ -470,19 +496,29 @@ export const validateSubcategory = [
     .withMessage('Subcategory name is required')
     .isLength({ min: 2, max: 100 })
     .withMessage('Subcategory name must be between 2 and 100 characters')
-    .matches(/^[a-zA-Z0-9\s\-&']+$/) // Added apostrophe here
-    .withMessage('Subcategory name can only contain letters, numbers, spaces, hyphens, ampersands, and apostrophes'),
+    .custom((value) => {
+      const invalidChars = findInvalidChars(value);
+
+      if (invalidChars.length > 0) {
+        throw new Error(
+          `Invalid characters used: ${invalidChars.join(' ')}`
+        );
+      }
+
+      return true;
+    }),
 
 
   body('description')
-    .optional() // Make description optional
+    .optional()
     .trim()
     .isLength({ max: 500 })
     .withMessage('Description cannot exceed 500 characters'),
 
+  // 🔹 categoryId OPTIONAL
   body('categoryId')
-    .notEmpty()
-    .withMessage('Category ID is required')
+    .optional()
+    .trim()
     .isLength({ min: 1 })
     .withMessage('Category ID cannot be empty'),
 
@@ -494,18 +530,19 @@ export const validateSubcategory = [
   // Validation result middleware
   (req, res, next) => {
     const errors = validationResult(req);
-    
+
     if (!errors.isEmpty()) {
       return res.status(400).json({
         success: false,
-        message: 'Subcategory validation failed',
-        errors: errors.array()
+        message: errors.array()[0].msg // 🔥 EXACT error
       });
     }
 
     next();
   }
 ];
+
+
 
 // Subcategory update validation
 export const validateSubcategoryUpdate = [
@@ -514,8 +551,18 @@ export const validateSubcategoryUpdate = [
     .trim()
     .isLength({ min: 2, max: 100 })
     .withMessage('Subcategory name must be between 2 and 100 characters')
-    .matches(/^[a-zA-Z0-9\s\-&']+$/) // Added apostrophe here
-    .withMessage('Subcategory name can only contain letters, numbers, spaces, hyphens, ampersands, and apostrophes'),
+    .custom((value) => {
+      const invalidChars = findInvalidChars(value);
+
+      if (invalidChars.length > 0) {
+        throw new Error(
+          `Invalid characters used: ${invalidChars.join(' ')}`
+        );
+      }
+
+      return true;
+    }),
+
 
   body('description')
     .optional()
@@ -535,13 +582,14 @@ export const validateSubcategoryUpdate = [
 
   (req, res, next) => {
     const errors = validationResult(req);
+
     if (!errors.isEmpty()) {
       return res.status(400).json({
         success: false,
-        message: 'Subcategory update validation failed',
-        errors: errors.array()
+        message: errors.array()[0].msg // 🔥 EXACT error
       });
     }
+
     next();
   }
 ];
