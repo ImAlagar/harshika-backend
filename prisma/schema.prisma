@@ -25,7 +25,7 @@ model HomeSlider {
   offerText   String?
   buttonText  String?
   buttonLink  String?
-  layout      String   @default("left")
+  layout      String?   @default("null")
   bgImage     String?  // Made optional
   image       String?  // Already optional
   imagePublicId String?

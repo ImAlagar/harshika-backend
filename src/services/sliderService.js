@@ -156,7 +156,7 @@ async createSlider(sliderData) {
       offerText: offerText || null,
       buttonText: buttonText || null,
       buttonLink: buttonLink || null,
-      layout: layout || 'left',
+      layout: layout || null,
       bgImage: bgImage || null,  // Can be null
       image: image || null,      // Can be null
       imagePublicId: finalImagePublicId || null,
@@ -225,7 +225,7 @@ async updateSlider(sliderId, updateData) {
   if (buttonLink !== undefined) dataToUpdate.buttonLink = buttonLink || null;
   
   // Handle layout
-  if (layout !== undefined) dataToUpdate.layout = layout || 'left';
+  if (layout !== undefined) dataToUpdate.layout = layout || null;
   
   // Handle boolean fields
   if (isActive !== undefined) dataToUpdate.isActive = isActive;

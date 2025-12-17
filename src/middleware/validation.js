@@ -295,7 +295,6 @@ body('subcategoryId')
     }),
 
   // Validation result middleware
-// Validation result middleware
 (req, res, next) => {
   const errors = validationResult(req);
   
@@ -374,7 +373,6 @@ export const validateProductUpdate = [
       return true;
     }),
 
-// Validation result middleware
 // Validation result middleware
 (req, res, next) => {
   const errors = validationResult(req);
