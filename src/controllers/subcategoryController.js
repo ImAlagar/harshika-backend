@@ -11,12 +11,13 @@ export const getAllSubcategories = asyncHandler(async (req, res) => {
     page: parseInt(page),
     limit: parseInt(limit),
     categoryId,
-    isActive: isActive !== undefined ? isActive === 'true' : undefined // Fix here
+    isActive: isActive !== undefined ? isActive === 'true' : undefined
   });
   
   res.status(200).json({
     success: true,
-    data: result.subcategories
+    data: result.subcategories,
+    pagination: result.pagination // Add this line
   });
 });
 // Get subcategory by ID

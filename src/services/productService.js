@@ -680,9 +680,6 @@ class ProductService {
                     throw new Error('Subcategory not found');
                 }
                 
-                if (subcategory.categoryId !== categoryId) {
-                    throw new Error('Subcategory does not belong to the specified category');
-                }
             }
         }
         // ✅ FIX: Allow subcategory without category (or remove this check entirely)
@@ -951,9 +948,7 @@ class ProductService {
                 if (!subcategory) {
                     throw new Error('Subcategory not found');
                 }
-                if (subcategory.categoryId !== categoryId) {
-                    throw new Error('Subcategory does not belong to the specified category');
-                }
+
             }
         } else {
             // ✅ FIX: If category is being cleared (set to null/empty), allow it
